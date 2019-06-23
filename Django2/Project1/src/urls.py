@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('food/', include('Food.urls')),
     path('',RedirectView.as_view(url='/food/', permanent=True)),
-    path('accounts/', include('users.urls'))
+    path('account/', include('users.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
