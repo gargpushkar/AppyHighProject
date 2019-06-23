@@ -1,0 +1,21 @@
+{% extends 'Food/base.html' %}
+{% load food_extras %}
+
+{% block title %}
+    Food List
+{% endblock title %}
+
+{% block content %}
+
+    {% if obj %}
+        <h3>{{obj.count}} Results found for {{ foodname }} </h3>
+        {% for food in obj %}
+            <a href=" {% url 'Food:detail' food.product_name food.id %} " >
+                 <p> {{food.id}} - {{food.product_name }} - {{ food.url|get_url}}</p>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>Nothing here!</p>
+    {% endif %}
+
+{% endblock content %}

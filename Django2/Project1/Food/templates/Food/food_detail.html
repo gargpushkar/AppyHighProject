@@ -1,0 +1,28 @@
+{% extends 'Food/base.html' %}
+{% load food_extras %}
+
+
+{% block title %}
+    Food Detail
+{% endblock title %}
+    
+
+{% block content %}
+<div class="">
+    <h1>{{ foodname }}</h1>
+    {% if value %}
+
+    {% for key, val in value %}
+
+    {% if val != '' and val != None %}
+    <p><strong>{{key}}</strong> : {{val}}</p>
+    {% endif %}
+
+    {% endfor %}
+
+    {% else %}
+    <p>Nothing here!</p>
+    {% endif %}
+    <a href="{% url 'Food:list' foodname %}">Go Back!</a>
+</div>
+{% endblock content %}
