@@ -26,12 +26,7 @@ print("Inserting Rows in DB....")
 
 column_name = food_list[0]
 
-count=step=25000
-
 for i in range(2,len(food_list)):
-    if i == count:
-        count += step
-        print(i)
     obj = {}
     for j in range(0,163):
         if j < len(food_list[i]):

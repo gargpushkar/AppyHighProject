@@ -3,26 +3,39 @@
 
 
 {% block title %}
-    Food Detail
+Food Detail
 {% endblock title %}
-    
+
 
 {% block content %}
 <div class="">
-    <h1>{{ foodname }}</h1>
+    <div class="food-detail"> 
+        <span class="food-detail-header">{{ foodname }}</span>
+        <a class= "btn btn-outline btn-outline-primary food-detail-link" style="float: right; clear: both;" href="{% url 'Food:list' foodname %}">Back</a> 
+    </div>
     {% if value %}
+    <table class="table table-border">
+        <tbody>
+            {% for key, val in value %}
 
-    {% for key, val in value %}
+            {% if val != '' and val != None and forloop.counter != 1%}
+            <tr>
+                <td><strong>{{key}}</strong></td>
+                {% if forloop.counter == 4 %}
+                <td><a href="{{val}}">{{val}}</a></td>
+                {% else %}
+                <td>{{val}}</td>
+                {% endif %}
+            </tr>
+            {% endif %}
 
-    {% if val != '' and val != None %}
-    <p><strong>{{key}}</strong> : {{val}}</p>
-    {% endif %}
-
-    {% endfor %}
-
+            {% endfor %}
+        </tbody>
+    </table>
     {% else %}
     <p>Nothing here!</p>
     {% endif %}
-    <a href="{% url 'Food:list' foodname %}">Go Back!</a>
+
+    
 </div>
 {% endblock content %}

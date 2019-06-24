@@ -12,6 +12,10 @@ body {
     margin: 0;
   }
   
+  .container {
+    width: 50em;
+	}
+	
   .bg-steel {
     background-color: #5f788a;
   }
@@ -82,3 +86,21 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .food-detail {
+	margin-bottom: 20px;
+  }
+
+.food-detail-header {
+	width: 60%;
+	font-size: 42px;
+	font-weight: bold;
+}
+
+.food-detail-link {
+	margin-top: 20px;
+}
+.add-food{
+  font-weight: bold;
+  font-size: 32px;
+}

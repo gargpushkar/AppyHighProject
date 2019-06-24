@@ -5,10 +5,13 @@
     Home
 {% endblock title %}
 
+
 {% block content %}
 <!-- <div class="jumbotron">
     <h1>Welcome to my Food App.</h1>
 </div> -->
+
+<h2>Welcome To FoodStore App</h2>
 <div class="content-section">
     <form method="POST">
         {% csrf_token %}
@@ -17,7 +20,7 @@
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Post</button>
+            <button class="btn btn-outline-info" type="submit">Search</button>
         </div>
     </form>
 

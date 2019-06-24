@@ -8,14 +8,19 @@
 {% block content %}
 
     {% if obj %}
-        <h3>{{obj.count}} Results found for {{ foodname }} </h3>
+        <h3>{{obj.count}} Results found</h3>
+        <ul class="list-group ">
         {% for food in obj %}
+        <li class="list-group-item">
             <a href=" {% url 'Food:detail' food.product_name food.id %} " >
-                 <p> {{food.id}} - {{food.product_name }} - {{ food.url|get_url}}</p>
+                <p> {{food.product_name }} - {{ food.url|get_url}}</p>
             </a>
+        </li>
         {% endfor %}
+        </ul>
     {% else %}
-        <p>Nothing here!</p>
+    <h3>{{obj.count}} Results found for the searched item.</h3>
+    <a class= "btn btn-outline btn-outline-primary mt-3" href="{% url 'Food:home' %}">Back</a>
     {% endif %}
 
 {% endblock content %}

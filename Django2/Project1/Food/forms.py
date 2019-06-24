@@ -5,7 +5,7 @@ from .models import FoodStore
 class FoodForm(forms.Form):
     """FoodForm definition."""
     name = forms.CharField(
-        label='Enter food name you want to search.', max_length=50, required=True)
+        label='Enter the food name you want to search.', max_length=50, required=True)
 
 
 class AddFoodForm(forms.ModelForm):
