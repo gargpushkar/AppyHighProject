@@ -14,19 +14,31 @@ import csv
 csv.field_size_limit(sys.maxsize)
 csv.field_size_limit(sys.maxsize)
 
+print("Reading tsv file....")
+
 food_list=[]
 with open('en.openfoodfacts.org.products.tsv', encoding='utf-8' ) as tsvfile:
   reader = csv.reader(tsvfile, delimiter='\t')
   for row in reader:
     food_list.append(row)
 
+print("Inserting Rows in DB....")
+
 column_name = food_list[0]
 
+count=step=25000
+
 for i in range(2,len(food_list)):
+    if i == count:
+        count += step
+        print(i)
     obj = {}
     for j in range(0,163):
-        obj[column_name[j]] = food_list[i][j]
-    
+        if j < len(food_list[i]):
+            obj[column_name[j]] = food_list[i][j]
+        else:
+            obj[column_name[j]] = ""
+
     FoodStore.objects.create(
         code  =  obj["code"],
         url  =  obj["url"],
