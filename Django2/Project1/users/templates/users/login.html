@@ -18,14 +18,14 @@
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Login</button>
+            <a href="{% provider_login_url 'google' %}" class="btn btn-social btn-google ml-2">
+                <i class="fa fa-google"></i>Sign in using Google
+            </a>
         </div>
     </form>
 
     <div class="border-top pt-3">
         <small class="text-muted">Need An Account? <a href="{% url 'users:register' %}" class="ml-2">Sign Up Now</a>
-        </small>
-        <small>
-            <a href="{% provider_login_url 'google' %}" class="ml-2">Sign Up Google</a>
         </small>
     </div>
 </div>
