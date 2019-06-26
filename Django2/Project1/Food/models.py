@@ -11,7 +11,7 @@ class FoodStore(models.Model):
     created_datetime                           =  models.CharField( null=True,max_length=100)
     last_modified_t                            =  models.CharField( null=True,max_length=100)
     last_modified_datetime                     =  models.CharField( null=True,max_length=100) 
-    product_name                               =  models.CharField( max_length=50, null = False) 
+    product_name                               =  models.CharField( db_index=True, max_length=50, null = False) 
     generic_name                               =  models.CharField( null=True,max_length=100) 
     quantity                                   =  models.CharField( null=True,max_length=100) 
     packaging                                  =  models.CharField( null=True,max_length=100) 

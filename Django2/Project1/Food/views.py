@@ -20,7 +20,7 @@ def home(request):
 
 
 def list(request, foodname):
-    obj = FoodStore.objects.filter(product_name__iexact=foodname)
+    obj = FoodStore.objects.filter(product_name=foodname)
     context = {
         'obj': obj,
         'foodname': foodname,
@@ -71,5 +71,5 @@ class FoodViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         foodname = self.request.query_params.get('foodname')
-        queryset = FoodStore.objects.filter(product_name__iexact=foodname)
+        queryset = FoodStore.objects.filter(product_name=foodname)
         return queryset
